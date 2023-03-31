@@ -7,7 +7,7 @@ CREATE TABLE [dbo].[flyway_schema_history]
 [script] [nvarchar] (1000) COLLATE Latin1_General_CI_AS NOT NULL,
 [checksum] [int] NULL,
 [installed_by] [nvarchar] (100) COLLATE Latin1_General_CI_AS NOT NULL,
-[installed_on] [datetime] NOT NULL CONSTRAINT [DF__flyway_sc__insta__1DB06A4F] DEFAULT (getdate()),
+[installed_on] [datetime] NOT NULL CONSTRAINT [DF__flyway_sc__insta__382F5661] DEFAULT (getdate()),
 [execution_time] [int] NOT NULL,
 [success] [bit] NOT NULL
 )

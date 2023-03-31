@@ -2,12 +2,21 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-CREATE PROCEDURE [dbo].[reptq1] AS
-select 
-	case when grouping(pub_id) = 1 then 'ALL' else pub_id end as pub_id, 
-	avg(price) as avg_price
-from titles
-where price is NOT NULL
-group by pub_id with rollup
-order by pub_id
+CREATE PROCEDURE [dbo].[reptq1]
+AS
+  BEGIN
+    SELECT CASE WHEN Grouping(publications.pub_id) = 1 
+	         THEN 'ALL' ELSE publications.pub_id END AS pub_id,
+      Avg(price) AS avg_price
+      FROM dbo.publishers
+        INNER JOIN dbo.publications
+          ON publications.pub_id = publishers.pub_id
+        INNER JOIN editions
+          ON editions.publication_id = publications.Publication_id
+        INNER JOIN dbo.prices
+          ON prices.Edition_id = editions.Edition_id
+      WHERE prices.PriceEndDate IS NULL
+      GROUP BY publications.pub_id WITH ROLLUP
+      ORDER BY publications.pub_id;
+  END;
 GO
