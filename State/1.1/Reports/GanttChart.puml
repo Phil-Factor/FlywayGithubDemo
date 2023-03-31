@@ -1,0 +1,23 @@
+@startgantt
+skinparam LegendBorderRoundCorner 2
+skinparam LegendBorderThickness 1
+skinparam LegendBorderColor silver
+skinparam LegendBackgroundColor white
+skinparam LegendFontSize 11
+printscale weekly
+saturday are closed
+sunday are closed
+title Gantt Chart for version 1.1
+legend top left
+  Database: PubsMain
+  Server: MyServer
+  RDBMS: sqlserver
+  Flyway Version: 1.1
+endlegend
+printscale weekly
+saturday are closed
+sunday are closed
+Project starts 2022-01-27 
+[1.1 - FirstRelease] on {Phil Factor} starts 2022-01-27 
+@endgantt
+
